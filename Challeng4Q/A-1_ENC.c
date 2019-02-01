@@ -1,33 +1,36 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main (){
     int i, j;
 
     char chalist[52] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    char inchara[100];
+    char inchara[100] = {"0"};
     printf("文字列暗号化ソフトです。\n100文字まで対応します。\n文字を入力してください。\n  >>>");
     scanf("%s",inchara);
 
-    int seed, keyN = 0;
+    int seed;
     do {
     printf("鍵となる数字(1~100)を決めてください。\n  >>>");
     scanf("%d",&seed);
     } while(seed == 0);
-    keyN = seed;
+    srand((unsigned int)seed);
 
-    int characode[100];
+    char tempc;
+    long tempn;
+    long ret1, ret2;
     for (i = 0; i < 100; i++) {
+        tempc = inchara[i];
         for (j = 0; j < 52; j++) {
-            if (inchara[i] == chalist[j]){
-                characode[i] = (j + keyN * 10 + 520) / 52 + 1;
-                printf("%c",chalist[characode[i]]);
+            if (tempc == chalist[j]){
+                tempn = (rand()/RAND_MAX)*53;
+                ret1 = (j + 1) * tempn % 52;
+                ret2 = (tempn - (ret1 - 1)) / 52;
+                printf("%c",chalist[ret1]);
+                printf("%c",chalist[ret2]);
             }
-        } /*
-        if (characode[i] == 0) {
-            int charleng = i;
-            break;
-        } */
+        }
     }
 
     printf("\n");

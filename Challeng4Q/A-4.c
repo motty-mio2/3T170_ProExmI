@@ -3,7 +3,7 @@
 #define characternum 8
 
 int main() {
-    void printletters(int list[8], int input_length) {
+    void printletters(int list[characternum], int input_length) {
         int i, j, k;
         int charasets[5][10] =  {{0b11111,0b00001,0b11111,0b11111,0b10001,0b11111,0b11111,0b11111,0b11111,0b11111}
                                 ,{0b10001,0b00001,0b00001,0b00001,0b10001,0b10000,0b10000,0b10001,0b10001,0b10001}
@@ -26,7 +26,7 @@ int main() {
             }
             printf("\n");
         }
-        
+
     }
 
     int i;
@@ -43,7 +43,7 @@ int main() {
     lenofin = i;
 
     printf("\n");
-    
+
     printletters(innum,lenofin);
 
     return 0;
