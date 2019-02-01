@@ -3,7 +3,7 @@
 int main() {
     int i, j, k, l, m, n, o, p, q, r, s;
     long number1, number2;
-    long ans;
+    unsigned long ans;
     int counter = 0;
 
     int butting_checker(int counter_f, long number1_f, long number2_f, long ans_f) {
