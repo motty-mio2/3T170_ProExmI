@@ -5,35 +5,10 @@ int main() {
     long number1, number2;
     unsigned long ans;
     int counter = 0;
-
-    int butting_checker(int counter_f, long number1_f, long number2_f, long ans_f) {
-        int x, y;
-        long holder;
-        int matcher, templist[10];
-
-        holder = ans_f;
-        matcher = 0;
-        for (x = 0; x < 10; x++) {
-            if (matcher == 1) {
-                break;
-            }
-            templist[x] = holder % 10;
-            y = 0;
-            while(y < x) {
-                if(templist[y] == templist[x]) {
-                    matcher = 1;
-                }
-                y++;
-            }
-            holder = (holder - templist[x]) / 10;
-        }
-        if (matcher == 0) {
-            counter_f++;
-            printf("%4d::%ld,%ld,%ld\n", counter_f, number1_f, number2_f ,ans_f);
-        }
-
-        return counter_f;
-    }
+    
+    int x, y;
+    long holder;
+    int matcher, templist[10];
 
     for (i = 1; i < 10; i++) {
         for (j = 0; j < 10; j++) {
@@ -58,7 +33,29 @@ int main() {
                                                                                 number2 = o * 10000 + p * 1000 + q * 100 + r * 10 + s;
                                                                                 ans = number1 * number2;
                                                                                 if (ans >= 1000000000){
-                                                                                    counter = butting_checker(counter, number1, number2, ans);
+       
+
+        holder = ans_f;
+        matcher = 0;
+        for (x = 0; x < 10; x++) {
+            if (matcher == 1) {
+                break;
+            }
+            templist[x] = holder % 10;
+            y = 0;
+            while(y < x) {
+                if(templist[y] == templist[x]) {
+                    matcher = 1;
+                }
+                y++;
+            }
+            holder = (holder - templist[x]) / 10;
+        }
+        if (matcher == 0) {
+            counter++;
+            printf("%4d::%ld,%ld,%ld\n", counter, number1, number2, ans);
+        }
+
                                                                                 }
                                                                             }
                                                                         }
@@ -79,6 +76,6 @@ int main() {
             }
         }
     }
-
+	
     return 0;
 }
