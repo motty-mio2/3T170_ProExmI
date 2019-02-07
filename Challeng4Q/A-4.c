@@ -33,7 +33,7 @@ int main() {
     int lenofin;
     int innum[characternum];
 
-    printf("表示ソフトへようこそ。\n%d文字まで入力できます。\n表示する文字を入力 or やめる場合は数字以外のキーを入力\n",characternum);
+    printf("表示ソフトへようこそ。\n%d文字まで入力できます。\n表示する数値を入力 or やめる場合は数字以外のキーを入力\n",characternum);
     for (i = 0; i < characternum; i++) {
         printf("%d文字目 >>>",i + 1);
         if (scanf("%d",&innum[i]) != 1) {
